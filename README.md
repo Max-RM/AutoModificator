@@ -1,7 +1,7 @@
 # AutoModificator 
 ###### Python program for changing files (bytepatching)
 
-![image](https://github.com/Max-RM/AutoModificator/assets/81485476/b22da77c-abd6-4668-b052-ba017d9929ee)
+![image](https://github.com/Max-RM/AutoModificator/assets/81485476/129a517e-68ce-4f19-b8c2-630aa934fad8)
 
 > Instructions in English: https://github.com/Max-RM/AutoModificator/docs/languages/en.md
 
