@@ -1,0 +1,6 @@
+1. Install Python for your platform. (It should be 3.9 and above, because Tkinter doesn't work in 3.8<) and install pip.
+(For Windows ARM32 use this installer: https://github.com/Max-RM/Python_3.12-for-Windows_ARM32)
+2. Install PyInstaller via pip.
+3. cd into root directory with script and all needed files.
+4. Write in CMD: Python -m PyInstaller --noconfirm --onefile --windowed --icon icon.ico --version-file settings.rc Auto_Modificator_018_tk.py
+(If there is no Python in path variables then specify full path to its exe).
