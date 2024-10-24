@@ -18,7 +18,7 @@ VSVersionInfo(
         StringStruct(u'FileDescription', u'Lightweight utility for patching binary files developed for the MDLC project'),
         StringStruct(u'FileVersion', u'0.1.8'),
         StringStruct(u'InternalName', u'AutoModificator'),
-        StringStruct(u'OriginalFilename', u'Auto_Modificator_018_tk_ARM64.exe'),
+        StringStruct(u'OriginalFilename', u'Auto_Modificator'),
         StringStruct(u'ProductName', u'AutoModificator'),
         StringStruct(u'ProductVersion', u'0.1.8'),
         StringStruct(u'LegalCopyright', u'© 2024 TNT ENTERTAINMENT inc')])
