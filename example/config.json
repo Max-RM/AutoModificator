@@ -1,0 +1,18 @@
+{
+    "path": "0.bin",
+    "switches": [
+        {
+            "title": "First switch",
+            "patches": [
+                "0x0 >> 00 >> FF"
+            ]
+        },
+        {
+            "title": "Second switch",
+            "patches": [
+                "0x1 >> 90 >> 00",
+                "0x2 >> 80 >> 01"
+            ]
+        }
+    ]
+}
