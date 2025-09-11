@@ -440,4 +440,4 @@ int APIENTRY wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, int nCmd) {
 	return (int)msg.wParam;
 }
 
-//Developed by MaxRm at TNT ENTERTAINMENT inc on September 11,2025
+//Developed by MaxRM at TNT ENTERTAINMENT inc on September 11,2025
