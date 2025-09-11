@@ -1,0 +1,4 @@
+1. Install llvm-mingw for your system.
+2. Specify path to the llvm-mingw root folder in the "llvm-path.txt" file.
+3. Click on "Build_All.bat" or one of "build_llvm_<architecture>.bat" bat file.
+4. Done.
