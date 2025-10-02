@@ -33,8 +33,8 @@ struct AppConfig {
 	std::wstring path; // path to file to patch (relative to EXE directory allowed)
 	std::vector<SwitchEntry> switches;
 	bool enableAll = false; // show master toggle if true
-	bool enableRam = false; // show RAM Patch Mode toggle if true
-	bool ramWarningDisabled = false; // skip RAM warning dialog if true
+	bool enableRAM = false; // show RAM Patch Mode toggle if true
+	bool RAMWarningDisabled = false; // skip RAM warning dialog if true
 };
 
 // Utility: trim spaces
@@ -130,12 +130,12 @@ static bool ParseJsonConfig(const std::wstring& filePath, AppConfig& out) {
 
 	// Optional RAM toggle and warning disabled flag
 	bool ramToggle = false;
-	if (findBooleanValue("enableRam", ramToggle)) {
-		out.enableRam = ramToggle;
+	if (findBooleanValue("enableRAM", ramToggle)) {
+		out.enableRAM = ramToggle;
 	}
 	bool warnDisabled = false;
-	if (findBooleanValue("ramWarningDisabled", warnDisabled)) {
-		out.ramWarningDisabled = warnDisabled;
+	if (findBooleanValue("RAMWarningDisabled", warnDisabled)) {
+		out.RAMWarningDisabled = warnDisabled;
 	}
 
 	// Find switches array with proper depth handling
@@ -501,7 +501,7 @@ static void LayoutAndCreateControls(HWND hwnd) {
 	int rowsHeight = (totalRows > 0 ? (totalRows * 24 + (totalRows - 1) * rowGap) : 0);
 	int extraBottomToggles = 0;
 	if (g_config.enableAll) extraBottomToggles += (rowGap + 22);
-	if (g_config.enableRam) extraBottomToggles += (rowGap + 22);
+	if (g_config.enableRAM) extraBottomToggles += (rowGap + 22);
 	int clientHeight = padding + rowsHeight + padding + extraBottomToggles + bottomBarHeight + padding;
 
 	// Resize window to fit desired client area
@@ -564,7 +564,7 @@ static void LayoutAndCreateControls(HWND hwnd) {
 	}
 
 	// Create/position bottom toggles at bottom after individual states are initialized
-	if (g_config.enableAll || g_config.enableRam) {
+	if (g_config.enableAll || g_config.enableRAM) {
 		RECT rcClient{}; GetClientRect(hwnd, &rcClient);
 		int statusH = 0;
 		if (g_status) {
@@ -597,7 +597,7 @@ static void LayoutAndCreateControls(HWND hwnd) {
 			SendMessageW(g_masterToggle, BM_SETCHECK, (anyEnabled && allChecked) ? BST_CHECKED : BST_UNCHECKED, 0);
 		}
 		// RAM mode toggle (right of master or alone at left)
-		if (g_config.enableRam) {
+		if (g_config.enableRAM) {
 			int xRam = x + (g_config.enableAll ? 210 : 0);
 			if (!g_ramToggle) {
 				g_ramToggle = CreateWindowExW(0, L"BUTTON", L"RAM Patch Mode",
@@ -645,13 +645,13 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 			if (id == kMasterToggleId && g_config.enableAll) {
 				LRESULT state = SendMessageW((HWND)lParam, BM_GETCHECK, 0, 0);
 				SetAllSwitches(state == BST_CHECKED);
-			} else if (id == kRamToggleId && g_config.enableRam) {
+			} else if (id == kRamToggleId && g_config.enableRAM) {
 				LRESULT state = SendMessageW((HWND)lParam, BM_GETCHECK, 0, 0);
 				bool wantEnable = (state == BST_CHECKED);
-				if (wantEnable && !g_config.ramWarningDisabled) {
+				if (wantEnable && !g_config.RAMWarningDisabled) {
 					bool dontShow = false;
 					INT_PTR res = ShowRamWarningDialogAndGetResult(dontShow);
-					if (dontShow) { g_config.ramWarningDisabled = true; }
+					if (dontShow) { g_config.RAMWarningDisabled = true; }
 					if (res != IDOK) {
 						SendMessageW(g_ramToggle, BM_SETCHECK, BST_UNCHECKED, 0);
 						return 0;
@@ -716,7 +716,7 @@ static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 		SetWindowPos(g_masterToggle, nullptr, x, y, 200, 22, SWP_NOZORDER | SWP_NOACTIVATE);
 	}
 	// Re-anchor RAM toggle
-	if (g_ramToggle && g_config.enableRam) {
+	if (g_ramToggle && g_config.enableRAM) {
 		RECT rcClient{}; GetClientRect(hwnd, &rcClient);
 		int statusH = 0;
 		if (g_status) {
