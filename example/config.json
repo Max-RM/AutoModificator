@@ -1,4 +1,7 @@
 {
+    "enableAll": true,
+    "enableRam": true,
+    "ramWarningDisabled": true,
     "path": "0.bin",
     "switches": [
         {

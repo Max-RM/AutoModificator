@@ -70,9 +70,9 @@ if not exist "%RC%" (
 	)
 )
 
-set SRC=Auto_Modificator_019_C++.cpp
-set RES=Auto_Modificator_019_C++.rc
-set OUT=Auto_Modificator_llvm_019_ARM32.exe
+set SRC=Auto_Modificator_C++.cpp
+set RES=Auto_Modificator_C++.rc
+set OUT=Auto_Modificator_llvm_ARM32.exe
 
 rem Compile resources -> build.res (llvm-rc) or build.res.o (windres)
 set "RESOBJ=build.res"

@@ -1,8 +1,8 @@
 101 ICON "assets/icon.ico"
 
 1 VERSIONINFO
- FILEVERSION 0,1,9,0
- PRODUCTVERSION 0,1,9,0
+ FILEVERSION 0,2,0,0
+ PRODUCTVERSION 0,2,0,0
  FILEFLAGSMASK 0x3fL
  FILEFLAGS 0x0L
  FILEOS 0x40004L
@@ -15,11 +15,11 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "TNT ENTERTAINMENT inc\0"
             VALUE "FileDescription", "Lightweight utility for patching binary files\0"
-            VALUE "FileVersion", "0.1.9\0"
+            VALUE "FileVersion", "0.2.0\0"
             VALUE "InternalName", "Auto_Modificator\0"
             VALUE "OriginalFilename", "Auto_Modificator\0"
             VALUE "ProductName", "Auto_Modificator\0"
-            VALUE "ProductVersion", "0.1.9\0"
+            VALUE "ProductVersion", "0.2.0\0"
             VALUE "LegalCopyright", L"2025 \x00A9 TNT ENTERTAINMENT inc\0"
         END
     END
